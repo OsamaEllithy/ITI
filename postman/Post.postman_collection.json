@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Post",
+    "_postman_id": "auto-Post",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Posts",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/posts"
+      }
+    },
+    {
+      "name": "Create Post (with image)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/posts",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "title",
+              "value": "First Post",
+              "type": "text"
+            },
+            {
+              "key": "content",
+              "value": "Unique content here",
+              "type": "text"
+            },
+            {
+              "key": "autherId",
+              "value": "{{userId}}",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Post (with new image)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/posts/{{postId}}",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "title",
+              "value": "Updated Title",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Post",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/posts/{{postId}}"
+      }
+    }
+  ]
+}
